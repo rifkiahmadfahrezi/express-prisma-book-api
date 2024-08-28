@@ -7,7 +7,7 @@ import bodyParser = require('body-parser')
 dotenv.config()
 
 const app : Express = express()
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 app.get('',  (( _ , res : Response) => {
   res.status(200).json({

@@ -31,11 +31,6 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
       });
     }
 
-    if(!user){
-      console.log(user)
-      return
-    }
-
     next();
   });
 };

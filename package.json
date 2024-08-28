@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "build": "tsc && npx prisma generate",
+    "build": "npx prisma generate && tsc",
     "start": "npx ts-node ./dist/api/index.js",
     "dev": "nodemon ./api/index.ts",
     "postinstall": "prisma generate"
@@ -12,7 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@prisma/client": "^5.18.0",
+    "@prisma/client": "^5.19.0",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

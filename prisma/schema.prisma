@@ -12,13 +12,14 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
   
 }
 
 model User{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  // id String @id @default(auto()) @map("_id") @db.ObjectId
+  id String @unique @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   username String @unique
@@ -26,7 +27,8 @@ model User{
 }
 
 model Book {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  // id String @id @default(auto()) @map("_id") @db.ObjectId
+  id String @unique @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title String
@@ -34,13 +36,15 @@ model Book {
   pages Int
   rating Int
   synopsis String
-  authorId String @db.ObjectId
+  // authorId String @db.ObjectId
+  authorId String
   author Author @relation(fields: [authorId], references: [id])
 }
 
 
 model Author {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  // id String @id @default(auto()) @map("_id") @db.ObjectId
+  id String @unique @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name String

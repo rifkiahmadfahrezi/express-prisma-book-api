@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc && npx prisma generate",
     "start": "npx ts-node ./dist/api/index.js",
-    "dev": "nodemon ./api/index.ts"
+    "dev": "nodemon ./api/index.ts",
+    "postinstall": "prisma generate"
   },
   "author": "",
   "license": "ISC",

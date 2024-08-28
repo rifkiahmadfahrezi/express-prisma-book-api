@@ -1,4 +1,14 @@
 {
 	"version": 2,
-	"rewrites": [{ "source": "/(.*)", "destination": "/api" }]
-}
+	"builds": [
+	  {
+		 "src": "api/index.ts",
+		 "use": "@vercel/node"
+	  }
+	],
+	"outputDirectory": "dist",
+	"rewrites": [
+	  { "source": "/(.*)", "destination": "/api/$1" }
+	]
+ }
+ 

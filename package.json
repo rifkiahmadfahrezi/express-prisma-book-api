@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npx prisma generate",
     "start": "npx ts-node ./dist/api/index.js",
-    "dev": "nodemon ./api/index.ts",
-    "migrate": "npx prisma migrate dev --name init"
+    "dev": "nodemon ./api/index.ts"
   },
   "author": "",
   "license": "ISC",

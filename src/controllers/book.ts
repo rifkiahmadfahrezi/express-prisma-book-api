@@ -46,7 +46,24 @@ class Book {
     */
    async getAll(req : Request, res: Response): Promise<void>{
       try{
-         const bookData = await prisma.book.findMany()
+         const bookData = await prisma.book.findMany({
+            select: {
+               id: true,
+               createdAt: true,
+               updatedAt: true,
+               title: true,
+               cover: true,
+               pages: true,
+               rating: true,
+               author: {
+                 select: {
+                   id: true,
+                   name: true,
+                   country: true,
+                 },
+               }
+            }
+         })
 
          res.status(200).json({
             status: true,
